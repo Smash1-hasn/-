@@ -1,0 +1,57 @@
+<view class="games-page">
+  <view class="score-bar">
+    <view class="score-item"><text class="score-label">本局</text><text class="score-value">{{score}}</text></view>
+    <view class="score-item"><text class="score-label">最佳</text><text class="score-value">{{bestScore}}</text></view>
+    <view class="score-item" wx:if="{{streak >= 3}}"><text class="score-label">🔥连对</text><text class="score-value">{{streak}}</text></view>
+  </view>
+
+  <!-- 菜单 -->
+  <block wx:if="{{!game}}">
+    <view class="menu-grid">
+      <view class="menu-card" bindtap="startMath">
+        <text class="menu-icon">🧮</text>
+        <text class="menu-name">速算挑战</text>
+        <text class="menu-desc">加减法练脑力</text>
+      </view>
+      <view class="menu-card" bindtap="startSpot">
+        <text class="menu-icon">🔍</text>
+        <text class="menu-name">物品归类</text>
+        <text class="menu-desc">锻炼思维分类</text>
+      </view>
+    </view>
+    <text class="game-desc">每天玩一玩，锻炼脑力，预防认知衰退 🧠</text>
+  </block>
+
+  <!-- 速算游戏 -->
+  <block wx:if="{{game === 'math'}}">
+    <view class="game-area">
+      <text class="game-desc">请计算：</text>
+      <text class="math-question">{{mathA}} {{mathOp}} {{mathB}} = ？</text>
+      <view class="math-grid">
+        <view wx:for="{{mathOptions}}" wx:key="*this" class="math-btn {{mathAnswered && item === mathAnswer ? 'math-correct' : ''}}" data-value="{{item}}" bindtap="pickMath">{{item}}</view>
+      </view>
+      <text class="result-text" wx:if="{{mathResult}}">{{mathResult}}</text>
+      <text class="game-desc" wx:if="{{mathTotal > 0}}">{{mathCorrect}}/{{mathTotal}} 正确</text>
+      <view class="next-row">
+        <view class="next-btn" bindtap="nextMath" wx:if="{{mathAnswered}}">下一题 →</view>
+      </view>
+      <text class="back-link" bindtap="showMenu">返回菜单</text>
+    </view>
+  </block>
+
+  <!-- 分类游戏 -->
+  <block wx:if="{{game === 'spot'}}">
+    <view class="game-area">
+      <text class="game-desc">找出不属于<text style="color:var(--primary);font-weight:700;">{{spotCategory}}</text>类的：</text>
+      <view class="spot-grid">
+        <view wx:for="{{spotItems}}" wx:key="*this" class="spot-btn {{spotAnswered && item === spotAnswer ? 'spot-correct' : ''}}" data-item="{{item}}" bindtap="pickSpot">{{item}}</view>
+      </view>
+      <text class="result-text" wx:if="{{spotResult}}">{{spotResult}}</text>
+      <text class="game-desc" wx:if="{{spotTotal > 0}}">{{spotCorrect}}/{{spotTotal}} 正确</text>
+      <view class="next-row">
+        <view class="next-btn" bindtap="nextSpot" wx:if="{{spotAnswered}}">下一题 →</view>
+      </view>
+      <text class="back-link" bindtap="showMenu">返回菜单</text>
+    </view>
+  </block>
+</view>

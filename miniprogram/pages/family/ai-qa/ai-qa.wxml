@@ -1,0 +1,28 @@
+<view class="qa-page">
+  <!-- 建议问题 -->
+  <view class="suggest-bar">
+    <text class="suggest-title">💡 你可以问我：</text>
+    <view class="suggest-chips">
+      <text wx:for="{{suggestedQuestions}}" wx:key="*this" class="suggest-chip" data-text="{{item}}" bindtap="quickQuestion">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 对话 -->
+  <scroll-view class="chat-list" scroll-y scroll-into-view="qa-{{messages.length-1}}" scroll-with-animation>
+    <view wx:for="{{messages}}" wx:key="index" id="qa-{{index}}" class="qa-item {{item.role==='user'?'qa-user':'qa-bot'}}">
+      <view class="qa-avatar">{{item.role==='user'?'👤':'🤖'}}</view>
+      <view class="qa-bubble">{{item.text}}</view>
+    </view>
+    <view wx:if="{{typing}}" class="qa-item qa-bot">
+      <view class="qa-avatar">🤖</view>
+      <view class="qa-bubble"><view class="qa-typing"><view></view><view></view><view></view></view></view>
+    </view>
+    <view class="disclaimer">⚠️ AI回答仅供参考，不构成医疗建议</view>
+  </scroll-view>
+
+  <!-- 输入 -->
+  <view class="input-bar">
+    <input class="input-field" value="{{inputText}}" bindinput="onInput" bindconfirm="sendMessage" placeholder="输入健康问题..." confirm-type="send" />
+    <view class="send-btn" bindtap="sendMessage">➤</view>
+  </view>
+</view>

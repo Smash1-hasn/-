@@ -1,0 +1,165 @@
+.chat-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FFF5F0 0%, #FFFFFF 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-list {
+  flex: 1;
+  padding: 24rpx 28rpx;
+  overflow-y: auto;
+}
+
+.chat-item {
+  display: flex;
+  margin-bottom: 28rpx;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.chat-self { justify-content: flex-end; }
+
+.chat-avatar {
+  width: 64rpx; height: 64rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  flex-shrink: 0;
+  margin: 0 12rpx;
+}
+.chat-bot .chat-avatar { background: var(--primary-bg); }
+.chat-self .chat-avatar { background: var(--accent-bg); order: 1; }
+
+.chat-bubble {
+  max-width: 70%;
+  padding: 20rpx 28rpx;
+  border-radius: 24rpx;
+  font-size: 34rpx;
+  line-height: 1.7;
+  word-break: break-all;
+}
+.chat-bot .chat-bubble {
+  background: #fff;
+  color: var(--text);
+  border-bottom-left-radius: 8rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.04);
+}
+.chat-self .chat-bubble {
+  background: var(--primary);
+  color: #fff;
+  border-bottom-right-radius: 8rpx;
+}
+
+.chat-typing {
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 10rpx 0;
+}
+.typing-dot {
+  width: 12rpx; height: 12rpx;
+  background: var(--text-hint);
+  border-radius: 50%;
+  animation: blink 1.4s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1); }
+}
+
+.chat-end {
+  text-align: center;
+  font-size: 22rpx;
+  color: var(--text-hint);
+  padding: 40rpx;
+}
+
+/* 录音提示条 */
+.listening-bar {
+  display: flex; align-items: center; justify-content: center; gap: 16rpx;
+  padding: 20rpx 28rpx; background: linear-gradient(135deg, #FFF5F5, #FFEBEE);
+  margin: 0 24rpx 8rpx; border-radius: 24rpx;
+}
+.listening-dot {
+  width: 16rpx; height: 16rpx; background: #E53935; border-radius: 50%;
+  animation: pulse 0.8s infinite;
+}
+.listening-text { font-size: 28rpx; color: #C62828; font-weight: 600; }
+.listening-wave { display: flex; align-items: flex-end; gap: 4rpx; height: 32rpx; }
+.listening-wave view {
+  width: 5rpx; border-radius: 3rpx; background: #E53935;
+  animation: wave 1s ease-in-out infinite;
+}
+.listening-wave view:nth-child(1) { height: 12rpx; }
+.listening-wave view:nth-child(2) { height: 24rpx; animation-delay: 0.1s; }
+.listening-wave view:nth-child(3) { height: 32rpx; animation-delay: 0.2s; }
+.listening-wave view:nth-child(4) { height: 24rpx; animation-delay: 0.3s; }
+.listening-wave view:nth-child(5) { height: 12rpx; animation-delay: 0.4s; }
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.4); }
+}
+
+.voice-btn {
+  width: 76rpx; height: 76rpx; border-radius: 50%;
+  background: var(--bg); display: flex; align-items: center;
+  justify-content: center; font-size: 36rpx; flex-shrink: 0;
+}
+.voice-btn.recording {
+  background: #FFF5F5; box-shadow: 0 0 0 4rpx rgba(229,57,53,0.2);
+  animation: pulse 0.8s infinite;
+}
+
+.input-bar {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+  padding: 16rpx 24rpx;
+  background: #fff;
+  border-top: 1rpx solid var(--border);
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+}
+
+.input-field {
+  flex: 1;
+  height: 76rpx;
+  background: var(--bg);
+  border-radius: 40rpx;
+  padding: 0 28rpx;
+  font-size: 32rpx;
+}
+
+.send-btn {
+  width: 76rpx; height: 76rpx;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #fff;
+  border: none;
+  flex-shrink: 0;
+}
+.send-btn::after { border: none; }
+.send-btn:active { opacity: 0.7; transform: scale(0.9); }
+
+.quick-bar {
+  display: flex;
+  gap: 12rpx;
+  padding: 12rpx 24rpx;
+  flex-wrap: wrap;
+}
+.quick-chip {
+  padding: 12rpx 24rpx;
+  background: #fff;
+  border-radius: 28rpx;
+  font-size: 26rpx;
+  color: var(--primary);
+  border: 1rpx solid var(--border);
+}
+.quick-chip:active { background: var(--primary-bg); }

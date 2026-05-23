@@ -1,0 +1,26 @@
+<view class="monitor-page">
+  <view class="gauge-card fade-in">
+    <view class="gauge-header">
+      <text class="gauge-icon">🎤</text>
+      <text class="gauge-title">语音设备状态</text>
+    </view>
+    <text class="gauge-value">{{deviceOnline ? '语音守护中' : '设备离线'}}</text>
+    <text class="gauge-range">{{lastSeen ? '最后活跃: '+lastSeen : '等待设备连接'}}</text>
+  </view>
+
+  <view class="motion-card">
+    <view class="motion-row"><text class="motion-label">语音设备</text><text class="motion-value {{deviceOnline ? 'text-success' : 'text-danger'}}">{{deviceOnline ? '✅ 在线' : '⚠️ 离线'}}</text></view>
+    <view class="motion-row"><text class="motion-label">SOS状态</text><text class="motion-value text-success">✅ 待命</text></view>
+    <view class="motion-row"><text class="motion-label">ASR语音模块</text><text class="motion-value {{deviceOnline ? 'text-success' : 'text-danger'}}">{{deviceOnline ? '✅ 运行中' : '⚠️ 未连接'}}</text></view>
+  </view>
+
+  <view class="card fade-in-up">
+    <text class="section-title">📋 语音告警记录</text>
+    <view class="alert-row" wx:for="{{recentAlerts}}" wx:key="_id" style="padding:14rpx 0;border-bottom:1rpx solid #F0F0F0;">
+      <text style="font-size:12rpx;margin-right:8rpx;">{{item.level==='critical'?'🔴':'🟡'}}</text>
+      <text style="flex:1;font-size:26rpx;">{{item.message||item.type}}</text>
+      <text style="font-size:22rpx;color:#B0B8BF;">{{item.time}}</text>
+    </view>
+    <view wx:if="{{recentAlerts.length===0}}" style="text-align:center;padding:32rpx;color:#B0B8BF;">暂无告警记录</view>
+  </view>
+</view>

@@ -1,0 +1,72 @@
+<view class="dashboard-page">
+  <view class="header-section">
+    <view class="header-top">
+      <view class="greeting">
+        <text class="greeting-text">{{nickname}}，{{greetingTime}}</text>
+        <text class="greeting-sub">语音守护 · 爱即守护</text>
+      </view>
+      <view class="header-badges">
+        <view class="device-badge {{statusClass}}">
+          <view class="badge-dot"></view>
+          <text>🎤 {{statusText || '未知'}}</text>
+        </view>
+        <view class="switch-badge" bindtap="switchRole">🔄</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设备状态卡片 -->
+  <view class="vital-row fade-in-up">
+    <view class="vital-card">
+      <text class="vital-icon">🎤</text>
+      <text class="vital-value">{{deviceOnline ? '语音在线' : '设备离线'}}</text>
+      <text class="vital-label">{{lastSeen ? '最后活跃 '+lastSeen : '等待连接'}}</text>
+    </view>
+    <view class="vital-card">
+      <text class="vital-icon">🔊</text>
+      <text class="vital-value">{{unreadAlerts || 0}}条</text>
+      <text class="vital-label">未读告警</text>
+    </view>
+    <view class="vital-card">
+      <text class="vital-icon">💬</text>
+      <text class="vital-value">{{dailyReport ? 'AI' : '...'}}</text>
+      <text class="vital-label">今日日报</text>
+    </view>
+  </view>
+
+  <view class="update-tip" wx:if="{{lastSeen}}">📡 设备最后活跃: {{lastSeen}}</view>
+
+  <!-- AI 日报 -->
+  <view class="card fade-in-up" wx:if="{{!loading && dailyReport}}">
+    <view class="section-header">
+      <text class="section-title">🤖 AI 日报</text>
+      <text class="link-text">今日</text>
+    </view>
+    <text class="daily-text">{{dailyReport}}</text>
+  </view>
+
+  <!-- 最近告警 -->
+  <view class="card fade-in-up" wx:if="{{!loading && recentAlerts.length > 0}}" bindtap="goAlerts">
+    <view class="section-header">
+      <text class="section-title">🔔 最近告警</text>
+      <text class="link-text">全部 →</text>
+    </view>
+    <view class="alert-row" wx:for="{{recentAlerts}}" wx:key="_id">
+      <text class="alert-dot {{item.level === 'critical' ? 'dot-danger' : 'dot-warning'}}"></text>
+      <text class="alert-msg">{{item.message || item.type}}</text>
+      <text class="alert-time">{{item.time}}</text>
+    </view>
+  </view>
+
+  <!-- 快捷入口 -->
+  <view class="quick-row fade-in-up">
+    <view class="quick-item" bindtap="goMonitor"><text class="quick-icon">📊</text><text class="quick-text">实时监护</text></view>
+    <view class="quick-item" bindtap="goAIQA"><text class="quick-icon">🤖</text><text class="quick-text">AI问答</text></view>
+    <view class="quick-item" bindtap="goMessages"><text class="quick-icon">💬</text><text class="quick-text">留言板</text></view>
+    <view class="quick-item" bindtap="goReminders"><text class="quick-icon">💊</text><text class="quick-text">用药提醒</text></view>
+  </view>
+  <view class="quick-row fade-in-up" style="margin-bottom:28rpx">
+    <view class="quick-item" bindtap="goReport"><text class="quick-icon">📋</text><text class="quick-text">更多服务</text></view>
+    <navigator class="quick-item" url="/pages/settings/settings"><text class="quick-icon">⚙️</text><text class="quick-text">设置</text></navigator>
+  </view>
+</view>

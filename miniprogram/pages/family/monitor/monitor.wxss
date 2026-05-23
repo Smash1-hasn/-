@@ -1,0 +1,135 @@
+.monitor-page {
+  min-height: 100vh;
+  background: var(--bg);
+  padding-bottom: 40rpx;
+}
+
+/* 表盘 */
+.gauge-card {
+  background: #fff;
+  margin: 20rpx;
+  border-radius: var(--radius);
+  padding: 40rpx 32rpx;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.gauge-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  margin-bottom: 20rpx;
+}
+.gauge-icon { font-size: 28rpx; }
+.gauge-title { font-size: 28rpx; color: var(--text-secondary); }
+.gauge-update { font-size: 22rpx; color: var(--text-hint); margin-left: 16rpx; }
+
+.gauge-value-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8rpx;
+  margin-bottom: 16rpx;
+}
+.gauge-value {
+  font-size: 110rpx;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.gauge-unit { font-size: 32rpx; color: var(--text-secondary); font-weight: 500; }
+.gauge-range {
+  display: inline-block;
+  background: var(--bg);
+  padding: 8rpx 24rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+/* 辅助数据 */
+.vital-row {
+  display: flex;
+  gap: 16rpx;
+  margin: 0 20rpx 20rpx;
+}
+.vital-mini {
+  flex: 1;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 28rpx 24rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  box-shadow: var(--shadow-sm);
+}
+.vital-mini-icon { font-size: 40rpx; }
+.vital-mini-value { font-size: 40rpx; font-weight: 800; color: var(--text); line-height: 1.2; display: block; }
+.vital-mini-label { font-size: 22rpx; color: var(--text-secondary); }
+
+/* 运动状态 */
+.motion-card {
+  background: #fff;
+  margin: 0 20rpx 20rpx;
+  border-radius: var(--radius);
+  padding: 20rpx 32rpx;
+  box-shadow: var(--shadow-sm);
+}
+.motion-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid var(--border);
+}
+.motion-row:last-child { border-bottom: none; }
+.motion-label { font-size: 28rpx; color: var(--text-secondary); }
+.motion-value { font-size: 28rpx; font-weight: 700; color: var(--text); }
+
+/* 图表 */
+.chart-section {
+  background: #fff;
+  margin: 0 20rpx 20rpx;
+  border-radius: var(--radius);
+  padding: 28rpx 24rpx;
+  box-shadow: var(--shadow-sm);
+}
+.chart-header { margin-bottom: 20rpx; }
+.chart-title { font-size: 28rpx; font-weight: 700; }
+.chart-container { position: relative; height: 240rpx; }
+
+/* 柱状图 */
+.mini-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 3rpx;
+  height: 200rpx;
+  padding: 0 2rpx;
+}
+.chart-bar {
+  flex: 1;
+  min-width: 4rpx;
+  border-radius: 3rpx 3rpx 0 0;
+  transition: height 0.3s;
+}
+
+/* 活动趋势 */
+
+/* 趋势 */
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8rpx;
+  font-size: 20rpx;
+  color: var(--text-hint);
+}
+.chart-empty {
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}

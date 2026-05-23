@@ -1,0 +1,136 @@
+.elderly-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FFFAF5 0%, #FFF5ED 20%, #FFFBF8 60%, #FFFEFA 100%);
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0 36rpx;
+}
+.elderly-page::before {
+  content: ''; position: absolute; top: -120rpx; right: -100rpx;
+  width: 440rpx; height: 440rpx;
+  background: radial-gradient(circle, rgba(255,152,0,0.04) 0%, transparent 65%);
+  border-radius: 50%; pointer-events: none;
+}
+
+/* ── 顶部 ── */
+.top-bar {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  padding: 110rpx 0 28rpx; position: relative; z-index: 1;
+}
+.back-btn {
+  font-size: 28rpx; color: #BF8040; padding: 14rpx 20rpx;
+  background: rgba(255,152,0,0.06); border-radius: 28rpx; font-weight: 500;
+}
+.clock-text { font-size: 46rpx; font-weight: 700; color: #4E342E; letter-spacing: 2rpx; }
+.top-icon { font-size: 36rpx; }
+
+/* ── 设备状态 ── */
+.device-status-card {
+  width: 100%; box-sizing: border-box;
+  background: linear-gradient(145deg, #FFFFFF, #FDFCFB);
+  border-radius: 40rpx; padding: 48rpx 40rpx;
+  margin-bottom: 28rpx; text-align: center;
+  box-shadow: 0 8rpx 40rpx rgba(78,52,46,0.04);
+  position: relative; z-index: 1;
+}
+.ds-icon { font-size: 72rpx; display: block; margin-bottom: 16rpx; }
+.ds-text { font-size: 48rpx; font-weight: 800; color: #3E2723; display: block; margin-bottom: 10rpx; letter-spacing: 2rpx; }
+.ds-sub { font-size: 28rpx; color: #8D6E63; }
+.ds-voice {
+  font-size: 32rpx; color: #2E7D32; font-weight: 600;
+  background: #E8F5E9; padding: 16rpx 28rpx;
+  border-radius: 20rpx; margin-top: 16rpx; display: inline-block;
+}
+
+/* ── 天气 ── */
+.weather-bar {
+  width: 100%; box-sizing: border-box;
+  padding: 22rpx 28rpx;
+  background: linear-gradient(135deg, #E8F5FC, #E3F2FD);
+  border-radius: 22rpx; margin-bottom: 24rpx;
+  font-size: 28rpx; color: #1565C0; line-height: 1.6; font-weight: 500;
+}
+
+/* ── 功能入口 ── */
+.func-row { display: flex; gap: 16rpx; margin-bottom: 28rpx; width: 100%; }
+.func-card {
+  flex: 1; background: #fff; border-radius: 28rpx;
+  padding: 32rpx 12rpx 28rpx; text-align: center;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.03);
+  transition: all 0.15s;
+}
+.func-card:active { transform: scale(0.94); background: #FFFBF6; }
+.func-icon { font-size: 46rpx; display: block; margin-bottom: 8rpx; }
+.func-name { font-size: 28rpx; font-weight: 700; color: #4E342E; display: block; }
+.func-desc { font-size: 22rpx; color: #A1887F; margin-top: 4rpx; }
+
+/* ── 留言 ── */
+.msg-remind-card {
+  display: flex; align-items: flex-start; gap: 16rpx;
+  padding: 28rpx; background: linear-gradient(135deg, #F0F4FA, #EDF2F9);
+  border-radius: 24rpx; border-left: 6rpx solid #2B6CB0;
+  width: 100%; box-sizing: border-box; margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(43,108,176,0.05);
+}
+.msg-remind-icon { font-size: 44rpx; flex-shrink: 0; margin-top: 4rpx; }
+.msg-remind-info { flex: 1; display: flex; flex-direction: column; gap: 6rpx; }
+.msg-remind-from { font-size: 24rpx; color: #2B6CB0; font-weight: 600; }
+.msg-remind-content { font-size: 32rpx; color: #2C3E50; line-height: 1.5; }
+.msg-remind-time { font-size: 22rpx; color: #95AEC7; }
+
+/* ── 用药 ── */
+.reminder-card {
+  display: flex; align-items: center; gap: 18rpx;
+  padding: 28rpx; background: linear-gradient(135deg, #FFFDF6, #FFF8E1);
+  border-radius: 24rpx; border-left: 6rpx solid #FF9800;
+  width: 100%; box-sizing: border-box; margin-bottom: 28rpx;
+  box-shadow: 0 4rpx 20rpx rgba(255,152,0,0.06);
+}
+.reminder-icon { font-size: 52rpx; flex-shrink: 0; }
+.reminder-info { flex: 1; }
+.reminder-title { font-size: 30rpx; font-weight: 700; color: #E65100; display: block; }
+.reminder-detail { font-size: 26rpx; color: #8D6E63; }
+.reminder-taken-btn {
+  padding: 14rpx 24rpx; background: linear-gradient(135deg, #66BB6A, #4CAF50); color: #fff;
+  border-radius: 22rpx; font-size: 26rpx; font-weight: 600; flex-shrink: 0;
+  box-shadow: 0 4rpx 16rpx rgba(76,175,80,0.2);
+}
+.reminder-active {
+  animation: remindPulse 0.6s ease-in-out 3;
+  border-left-color: #E53935 !important;
+}
+@keyframes remindPulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.025); background: #FFF3E0; }
+}
+
+/* ── SOS ── */
+.sos-zone { margin-bottom: 36rpx; margin-top: 8rpx; }
+.sos-wrapper { position: relative; display: flex; align-items: center; justify-content: center; }
+.sos-ring {
+  position: absolute; width: 360rpx; height: 360rpx;
+  border-radius: 50%; border: 6rpx solid rgba(229,57,53,0.15);
+  animation: sosRing 2s ease-out infinite;
+}
+@keyframes sosRing { 0%{transform:scale(0.9);opacity:0.4} 100%{transform:scale(1.3);opacity:0} }
+.sos-btn {
+  width: 320rpx; height: 320rpx; border-radius: 50%;
+  background: linear-gradient(150deg, #FF5252 0%, #E53935 40%, #B71C1C 100%);
+  border: none; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: 0 28rpx 64rpx rgba(229,57,53,0.25), inset 0 2rpx 0 rgba(255,255,255,0.15);
+  position: relative; z-index: 1;
+}
+.sos-btn::after { border: none; }
+.sos-btn:active { transform: scale(0.86); }
+.sos-title { font-size: 68rpx; font-weight: 900; color: #fff; letter-spacing: 14rpx; text-shadow: 0 2rpx 4rpx rgba(0,0,0,0.15); }
+.sos-hint { font-size: 28rpx; color: rgba(255,255,255,0.7); margin-top: 8rpx; }
+
+/* ── 底部 ── */
+.voice-bar {
+  display: flex; align-items: center; gap: 14rpx;
+  padding: 30rpx 48rpx; background: #FFFBF6;
+  border-radius: 48rpx; margin-bottom: 56rpx;
+  box-shadow: 0 4rpx 16rpx rgba(78,52,46,0.04);
+}
+.voice-bar:active { opacity: 0.7; transform: scale(0.97); }
+.voice-icon { font-size: 36rpx; }
+.voice-text { font-size: 30rpx; color: #E65100; font-weight: 600; }

@@ -1,0 +1,62 @@
+.dashboard-page { min-height: 100vh; background: #F0F2F8; padding-bottom: 40rpx; }
+
+/* ── 头部 ── */
+.header-section {
+  background: linear-gradient(155deg, #0A1628 0%, #142850 35%, #1A4F8A 100%);
+  padding: 100rpx 32rpx 56rpx; border-radius: 0 0 48rpx 48rpx;
+  position: relative; overflow: hidden;
+}
+.header-section::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(91,155,213,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(232,115,74,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+.greeting-text { font-size: 44rpx; font-weight: 700; color: #fff; display: block; margin-bottom: 6rpx; letter-spacing: 2rpx; }
+.greeting-sub { font-size: 26rpx; color: rgba(255,255,255,0.5); }
+.header-badges { display: flex; gap: 16rpx; align-items: center; }
+.device-badge { display: flex; align-items: center; gap: 8rpx; padding: 10rpx 20rpx; border-radius: 24rpx; font-size: 24rpx; color: #fff; background: rgba(255,255,255,0.1); backdrop-filter: blur(10rpx); }
+.online .badge-dot { background: #4CAF50; box-shadow: 0 0 10rpx rgba(76,175,80,0.5); }
+.offline .badge-dot { background: #E53935; }
+.switch-badge { width: 56rpx; height: 56rpx; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 26rpx; }
+
+/* ── 设备卡片 ── */
+.vital-row { display: flex; gap: 14rpx; margin: -36rpx 20rpx 16rpx; position: relative; z-index: 3; }
+.vital-card {
+  flex: 1; background: #fff; border-radius: 24rpx;
+  padding: 32rpx 16rpx 24rpx; text-align: center;
+  box-shadow: 0 8rpx 32rpx rgba(10,22,40,0.06);
+  transition: transform 0.2s;
+}
+.vital-card:active { transform: translateY(-2rpx); }
+.vital-icon { font-size: 36rpx; display: block; margin-bottom: 10rpx; }
+.vital-value { font-size: 32rpx; font-weight: 700; color: #2C3E50; display: block; line-height: 1.2; }
+.vital-label { font-size: 22rpx; color: #8C8C8C; display: block; margin-top: 8rpx; }
+.update-tip { text-align: center; margin-bottom: 8rpx; font-size: 22rpx; color: #B0B8BF; }
+
+/* ── 卡片 ── */
+.card { margin: 0 20rpx 20rpx; background: #fff; border-radius: 24rpx; padding: 28rpx 28rpx 20rpx; box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.04); }
+.section-title { font-size: 28rpx; font-weight: 700; color: #2C3E50; }
+.link-text { font-size: 24rpx; color: #2B6CB0; }
+.daily-text { font-size: 28rpx; color: #2C3E50; line-height: 1.8; padding: 16rpx 20rpx; background: linear-gradient(135deg, #F0F4FA, #F5F8FF); border-radius: 16rpx; display: block; margin-top: 12rpx; }
+
+/* ── 告警行 ── */
+.alert-row { display: flex; align-items: center; gap: 12rpx; padding: 14rpx 0; border-bottom: 1rpx solid #F5F5F5; }
+.alert-row:last-child { border-bottom: none; }
+.alert-dot { width: 10rpx; height: 10rpx; border-radius: 50%; flex-shrink: 0; }
+.dot-danger { background: #E53935; box-shadow: 0 0 8rpx rgba(229,57,53,0.4); }
+.dot-warning{ background: #FF9800; }
+.alert-msg { flex: 1; font-size: 26rpx; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #2C3E50; }
+.alert-time{ font-size: 22rpx; color: #B0B8BF; white-space: nowrap; }
+
+/* ── 快捷入口 ── */
+.quick-row { display: flex; gap: 12rpx; margin: 0 20rpx 12rpx; }
+.quick-item {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  padding: 28rpx 12rpx; background: #fff; border-radius: 20rpx;
+  box-shadow: 0 2rpx 16rpx rgba(0,0,0,0.03);
+}
+.quick-item:active { transform: scale(0.96); background: #F8FAFD; }
+.quick-icon { font-size: 40rpx; margin-bottom: 10rpx; }
+.quick-text { font-size: 24rpx; color: #2C3E50; font-weight: 500; }

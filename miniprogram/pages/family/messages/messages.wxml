@@ -1,0 +1,34 @@
+<view class="msg-page">
+  <view class="add-btn" bindtap="showAdd">+ 给老人留言</view>
+  <view class="clear-btn" wx:if="{{messages.length > 0}}" bindtap="clearAll">🗑 一键清空 ({{messages.length}}条)</view>
+
+  <block wx:for="{{messages}}" wx:key="_id">
+    <view class="msg-card fade-in-up stagger-item">
+      <view class="msg-top">
+        <text class="msg-from">{{item.type === 'voice' ? '🔊' : '💬'}} {{item.fromUser || '家人'}} {{item.type === 'voice' ? '语音' : '留言'}}</text>
+        <text class="msg-time">{{item.timeStr}}</text>
+      </view>
+      <view class="msg-body {{item.type === 'voice' ? 'voice-msg' : ''}}">"{{item.content}}"</view>
+      <view class="msg-del" bindtap="deleteMessage" data-id="{{item._id}}">删除</view>
+    </view>
+  </block>
+
+  <view class="empty-state" wx:if="{{messages.length === 0}}">
+    <view class="empty-icon">💌</view>
+    <text class="empty-title">还没有留言</text>
+    <text class="empty-desc">给老人写句话，温暖他的每一天</text>
+  </view>
+
+  <!-- 留言表单 -->
+  <view class="form-overlay" wx:if="{{showForm}}" bindtap="hideForm">
+    <view class="form-panel" catchtap="noop">
+      <text class="fp-title">给老人留言</text>
+      <textarea class="fp-textarea" value="{{msgContent}}" bindinput="onContentInput" placeholder="输入您想对老人说的话..." maxlength="200" auto-focus />
+      <view class="fp-count">{{msgContent.length}}/200</view>
+      <view class="fp-actions">
+        <view class="fp-cancel" bindtap="hideForm">取消</view>
+        <view class="fp-send" bindtap="sendMessage">发送留言</view>
+      </view>
+    </view>
+  </view>
+</view>

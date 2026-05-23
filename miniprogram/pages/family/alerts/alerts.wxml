@@ -1,0 +1,45 @@
+<view class="alerts-page">
+  <!-- 筛选栏 -->
+  <view class="filter-bar">
+    <view class="filter-tab {{filter === 'all' ? 'active' : ''}}" bindtap="filterAlerts" data-filter="all">
+      <text>全部</text>
+    </view>
+    <view class="filter-tab {{filter === 'unhandled' ? 'active' : ''}}" bindtap="filterAlerts" data-filter="unhandled">
+      <text>待处理</text>
+    </view>
+    <view class="filter-tab {{filter === 'critical' ? 'active' : ''}}" bindtap="filterAlerts" data-filter="critical">
+      <text>紧急</text>
+    </view>
+  </view>
+
+  <view class="clear-btn" wx:if="{{alerts.length > 0}}" bindtap="clearHandled">🗑 清空已处理告警</view>
+
+  <!-- 告警列表 -->
+  <view class="alert-list" wx:if="{{alerts.length > 0}}">
+    <view class="alert-item {{item.handled ? 'handled' : ''}} {{item.level === 'critical' ? 'critical' : ''}}"
+          wx:for="{{alerts}}" wx:key="_id"
+          bindtap="viewDetail" data-item="{{item}}">
+      <view class="alert-left">
+        <text class="alert-icon">{{item.icon}}</text>
+      </view>
+      <view class="alert-center">
+        <view class="alert-header-row">
+          <text class="alert-type">{{item.type === 'fall' ? '🚨 跌倒告警' : item.type === 'voice_sos' ? '🔊 语音求救' : item.type === 'sos' ? '🆘 SOS求救' : item.type === 'device_offline' ? '📡 设备离线' : '📢 其他告警'}}</text>
+          <text class="alert-level {{item.level}}">{{item.levelText}}</text>
+        </view>
+        <text class="alert-meta">{{item.message || ''}}</text>
+        <text class="alert-time">{{item.time}}</text>
+      </view>
+      <view class="alert-right" wx:if="{{!item.handled}}">
+        <button class="handle-btn" size="mini" catchtap="handleAlert" data-id="{{item._id}}">处理</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <text class="empty-icon">✅</text>
+    <text class="empty-text">暂无告警记录</text>
+    <text class="empty-sub">老人状态一切正常</text>
+  </view>
+</view>

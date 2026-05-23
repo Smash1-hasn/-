@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>爱即守护 - 比赛作品文档</title>
+<style>
+  @page { size: A4; margin: 2cm 2.2cm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "SimHei", sans-serif;
+    font-size: 14px; line-height: 1.8; color: #2c3e50;
+    max-width: 900px; margin: 0 auto; padding: 0;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .cover {
+    page-break-after: always; text-align: center;
+    background: linear-gradient(175deg, #E8EEF6 0%, #FFF5F0 50%, #FFF 100%);
+    padding: 100px 60px 60px;
+  }
+  .cover-logo { display: flex; justify-content: center; gap: 0; margin-bottom: 36px; }
+  .cover-circle {
+    width: 120px; height: 120px; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+  }
+  .cover-circle.warm { background: linear-gradient(135deg, #FFF5F0, #FFE0D0); }
+  .cover-circle.cool { background: linear-gradient(135deg, #EDF2F9, #D0E0F5); }
+  .cover-divider { width: 2px; height: 60px; background: linear-gradient(180deg, transparent, #D0D8E0, transparent); margin: 0 -1px; }
+  .cover h1 { font-size: 48px; font-weight: 900; letter-spacing: 8px; background: linear-gradient(135deg, #2B6CB0, #E8734A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .cover .subtitle { font-size: 18px; color: #7F8C8D; margin: 12px 0 36px; }
+  .cover .meta { font-size: 14px; color: #95A5A6; }
+  h2 { font-size: 22px; font-weight: 700; color: #2B6CB0; border-bottom: 2px solid #EDF2F9; padding-bottom: 8px; margin: 36px 0 18px; page-break-after: avoid; }
+  h3 { font-size: 17px; font-weight: 700; color: #2C3E50; margin: 24px 0 12px; }
+  h4 { font-size: 15px; font-weight: 700; color: #555; margin: 16px 0 8px; }
+  p { margin: 8px 0; text-indent: 2em; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; page-break-inside: avoid; }
+  th { background: #2B6CB0; color: #fff; padding: 10px 14px; font-weight: 600; text-align: left; }
+  td { padding: 10px 14px; border-bottom: 1px solid #EDF2F9; }
+  tr:nth-child(even) td { background: #FAFBFC; }
+  pre {
+    background: #F5F7FA; border-radius: 8px; padding: 14px 18px;
+    font-family: "Source Code Pro", "Consolas", monospace; font-size: 11px;
+    line-height: 1.5; overflow-x: auto; margin: 12px 0; white-space: pre-wrap;
+    border: 1px solid #E8ECF1; page-break-inside: avoid;
+  }
+  .code-label { font-size: 12px; color: #7F8C8D; margin: 16px 0 4px; font-weight: 600; }
+  .highlight-box { background: linear-gradient(135deg, #EDF2F9, #FFF5F0); border-left: 4px solid #2B6CB0; border-radius: 0 12px 12px 0; padding: 16px 24px; margin: 16px 0; font-size: 14px; }
+  .feature-grid { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+  .feature-card { flex: 1; min-width: 200px; background: #fff; border-radius: 12px; padding: 16px; border: 1px solid #EDF2F9; }
+  .feature-card h4 { margin: 0 0 8px; font-size: 15px; color: #2B6CB0; }
+  .feature-card p { font-size: 13px; color: #555; text-indent: 0; }
+  .disclaimer { margin-top: 60px; padding: 20px 24px; background: #FFFBF0; border-radius: 12px; font-size: 13px; color: #8C6D1F; text-align: center; }
+  .dual-col { display: flex; gap: 24px; }
+  .dual-col > div { flex: 1; }
+  @media print { body { padding: 0; } .cover { margin: 0; } }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-logo">
+    <div class="cover-circle warm"><span style="font-size:44px">👴</span><span style="font-size:13px;color:#8D6E63">守护</span></div>
+    <div class="cover-divider"></div>
+    <div class="cover-circle cool"><span style="font-size:44px">👨‍👩‍👧</span><span style="font-size:13px;color:#8D6E63">关爱</span></div>
+  </div>
+  <h1>爱即守护</h1>
+  <p class="subtitle">AI 驱动的语音关怀小程序</p>
+  <div class="meta">
+    <p>赛道：微信小程序开发 · 方向：智慧医疗与大健康</p>
+    <p>2026年辽宁省普通高等学校大学生移动应用开发赛</p>
+  </div>
+</div>
+
+<!-- ════════════ 正文 ════════════ -->
+<h2>一、作品概述</h2>
+<p>"爱即守护"是一款基于微信小程序的居家语音关怀平台。老人通过 ASR Pro 离线语音设备喊出关键词，小程序实时接收告警和留言。DeepSeek 大模型驱动 AI 陪聊，百度语音识别合成实现全语音对话。家人端提供仪表盘、告警管理、留言板、用药提醒等功能。</p>
+<div class="highlight-box"><strong>核心价值：</strong>老人喊一嗓子，家人小程序收到；AI 陪老人聊天解闷。零触屏语音交互，WiFi断线也能本地安抚。</div>
+
+<h2>二、功能全景</h2>
+<h3>2.1 老人端（极简大字模式）</h3>
+<table>
+  <tr><th width="15%">页面</th><th width="25%">功能</th><th>描述</th></tr>
+  <tr><td>首页</td><td>🎤设备状态 / 🆘SOS求救 / 🌤天气提醒 / 💬留言 / 💊用药</td><td>5分钟超时判定离线；320rpx红色SOS按钮+脉动光环；wttr.in免费天气API；家人留言大字卡片；到点脉冲提醒+已服按钮</td></tr>
+  <tr><td>AI陪聊</td><td>🤖语音对话 / 快捷话题</td><td>按住🎤说话→百度STT→DeepSeek AI→百度TTS朗读；5个预设话题一键发送</td></tr>
+  <tr><td>健脑游戏</td><td>🧮速算 / 🔍物品分类</td><td>20以内加法4选项；6选1找不同类别；连胜加分；防死循环设计</td></tr>
+</table>
+
+<h3>2.2 家人端（数据监护模式）</h3>
+<table>
+  <tr><th width="15%">页面</th><th width="25%">功能</th><th>描述</th></tr>
+  <tr><td>仪表盘</td><td>🎤设备状态 / 🤖AI日报 / 🔔告警</td><td>5分钟超时离线判定；每日统计语音消息+告警数→DeepSeek生成摘要；最近3条告警</td></tr>
+  <tr><td>监护页</td><td>语音设备详情 / 告警记录</td><td>ASR模块运行状态、SOS待命状态；最近5条告警</td></tr>
+  <tr><td>告警页</td><td>筛选 / 🔊语音求救 / 标记处理</td><td>全部/未处理/紧急三筛；voice_sos语音求救专属图标；即时本地更新+云端同步；一键清空已处理</td></tr>
+  <tr><td>留言板</td><td>💬文字留言 / 🔊语音消息 / 一键清空</td><td>家人打字→老人首页展示；语音消息橙色高亮区分；逐个删除+一键清空</td></tr>
+  <tr><td>用药提醒</td><td>💊设提醒 / 📝历史联想</td><td>药品名+用量+时间；输入关键字自动联想历史记录填入</td></tr>
+  <tr><td>服务页</td><td>功能聚合入口</td><td>AI问答/留言板/用药提醒/设置四入口</td></tr>
+  <tr><td>AI问答</td><td>🤖健康咨询</td><td>6个预设老年健康问题；温度0.3确保专业；含医疗免责</td></tr>
+  <tr><td>设置</td><td>🏠配对码 / 📱设备 / 👥紧急联系人</td><td>永久配对码一键复制；设备在线状态；联系人增删管理</td></tr>
+</table>
+
+<h2>三、核心功能与代码实现</h2>
+
+<!-- ═══ 3.1 ═══ -->
+<h3>3.1 语音SOS全链路</h3>
+<p>老人对着ASR Pro喊"救命"→ 语音识别模块输出关键词 → ESP32通过WiFi上传 → 云函数接收翻译 → alerts集合写入 → 家人端小程序显示红色告警。</p>
+<p class="code-label">ESP32固件（__WiFi_____.ino）— 接收ASR Pro文字并上传云端</p>
+<pre>// 爱即守护 - ESP32 固件 v3.3（支持多命令词）
+#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+#include &lt;HardwareSerial.h&gt;
+
+#define WIFI_SSID       "su"
+#define WIFI_PASSWORD   "subowen123"
+#define DEVICE_ID       "001"
+#define CLOUD_FUNC_URL  "https://cloud2-d2g7yeednd8ac1836-1433086696.ap-shanghai.app.tcloudbase.com/deviceDataIngest"
+#define ASR_RX_PIN      16
+#define REPEAT_INTERVAL 10000
+
+HardwareSerial asrSerial(2);
+String lastText = "";
+unsigned long lastUploadTime = 0, lastReconnectAttempt = 0;
+
+bool isEmergency(String text) {
+    return (text == "救命") || (text == "我摔倒了");
+}
+
+void uploadToCloud(String text, bool emergency) {
+    if (WiFi.status() != WL_CONNECTED) { return; }
+    HTTPClient http;
+    http.begin(CLOUD_FUNC_URL);
+    http.addHeader("Content-Type", "application/json");
+    String json = "{\"deviceId\":\"" + String(DEVICE_ID) + "\",\"type\":\""
+                + String(emergency ? "voice_sos" : "voice_msg") + "\",\"text\":\"" + text + "\"}";
+    int httpCode = http.POST(json);
+    http.end();
+}
+
+void setup() {
+    Serial.begin(115200);
+    asrSerial.begin(115200, SERIAL_8N1, ASR_RX_PIN, -1);
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    int tries = 0;
+    while (WiFi.status() != WL_CONNECTED && tries++ &lt; 30) { delay(500); }
+}
+
+void loop() {
+    static String buffer = "";
+    while (asrSerial.available()) {
+        char c = asrSerial.read();
+        if (c == '\n' || c == '\r') {
+            if (buffer.length() &gt; 0) {
+                String currentText = buffer; buffer = "";
+                unsigned long now = millis();
+                if (currentText != lastText || (now - lastUploadTime) &gt; REPEAT_INTERVAL) {
+                    lastText = currentText;
+                    lastUploadTime = now;
+                    uploadToCloud(currentText, isEmergency(currentText));
+                }
+            }
+        } else { buffer += c; if (buffer.length() &gt; 200) buffer = ""; }
+    }
+    if (WiFi.status() != WL_CONNECTED &amp;&amp; millis() - lastReconnectAttempt &gt; 10000) {
+        lastReconnectAttempt = millis();
+        WiFi.reconnect();
+    }
+    delay(10);
+}</pre>
+
+<p class="code-label">云函数 deviceDataIngest/index.js — 接收数据、翻译关键词、写入数据库</p>
+<pre>const cloud = require('wx-server-sdk')
+cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV })
+const db = cloud.database()
+
+exports.main = async (event) =&gt; {
+  let params = event
+  if (typeof event.body === 'string') {
+    try { params = JSON.parse(event.body) } catch(e) {}
+  }
+  const { deviceId, type } = params
+  const rawText = params.text || ''
+  const map = { help:'救命', fell:'我摔倒了', ok:'我很好', miss:'想你们了', pill:'该吃药了' }
+  const text = map[rawText] || rawText
+  const ts = new Date()
+
+  try {
+    const did = deviceId || '001'
+    // 设备状态（自动创建）
+    const dev = await db.collection('devices').where({ deviceId: did }).get()
+    if (dev.data.length &gt; 0) {
+      await db.collection('devices').doc(dev.data[0]._id).update({ data: { status: 'online', lastSeen: ts } })
+    } else {
+      await db.collection('devices').add({ data: { deviceId: did, status: 'online', lastSeen: ts } })
+    }
+    // 服务端判断SOS（不依赖ESP32的type字段）
+    const isSOS = type === 'voice_sos' || (text &amp;&amp; (
+      text == 'help' || text == 'fell' ||
+      text.indexOf('救命') &gt;= 0 || text.indexOf('摔倒') &gt;= 0 || text.indexOf('救我') &gt;= 0))
+
+    if (isSOS &amp;&amp; text) {
+      await db.collection('alerts').add({ data: { deviceId: did, type: 'voice_sos', level: 'critical', message: '语音求救: ' + text, handled: false, timestamp: ts } })
+    }
+    if (!isSOS &amp;&amp; text) {
+      await db.collection('messages').add({ data: { type: 'voice', content: text, fromRole: 'elderly', fromUser: '老人(语音)', createTime: ts } })
+    }
+    return { success: true, type: type || 'unknown' }
+  } catch (err) {
+    return { success: false, error: err.message }
+  }
+}</pre>
+
+<!-- ═══ 3.2 ═══ -->
+<h3>3.2 AI语音陪聊（pages/elderly/chat/chat.js）</h3>
+<p>按住🎤说话 → 百度语音识别(STT) → DeepSeek大模型生成回复 → 百度语音合成(TTS)朗读。全程语音，老人不用打字。文字输入同样支持。</p>
+<pre>const DEEPSEEK_KEY = 'sk-xxx'
+const BAIDU_KEY = 'xxx'
+const BAIDU_SECRET = 'xxx'
+let baiduToken = '', baiduTokenTime = 0
+
+Page({
+  data: { messages: [], inputText: '', typing: false, listening: false },
+
+  onLoad() {
+    this.setData({ messages: [{ role: 'bot', text: '您好！我是小安。打字或点🎤跟我语音对话~', time: this.now() }] })
+  },
+
+  // ===== 文字发送 =====
+  onSend() {
+    const text = this.data.inputText.trim()
+    if (!text || this.data.typing) return
+    this.setData({ inputText: '', typing: true })
+    this.addMsg('user', text)
+    this.chat(text)
+  },
+
+  quickChat(e) {
+    const t = e.currentTarget.dataset.text
+    if (typeof t !== 'string') return
+    this.setData({ typing: true })
+    this.addMsg('user', t); this.chat(t)
+  },
+
+  // ===== 语音输入（按住说话，松开发送）=====
+  startVoice() {
+    if (this._recording) return
+    this._recording = true
+    const rm = wx.getRecorderManager()
+    this._rm = rm
+    rm.onStop((res) =&gt; {
+      this._recording = false; this._rm = null
+      this.setData({ listening: false })
+      if (res.tempFilePath) { wx.showLoading({ title: '识别中...' }); this.stt(res.tempFilePath) }
+    })
+    rm.onError((err) =&gt; {
+      this._recording = false; this._rm = null
+      wx.showToast({ title: '录音失败，请授权麦克风', icon: 'none' })
+    })
+    rm.start({ duration: 15000, sampleRate: 16000, numberOfChannels: 1, format: 'wav' })
+  },
+
+  stopVoice() {
+    if (!this._recording) return
+    this._rm &amp;&amp; this._rm.stop()
+  },
+
+  // ===== 百度语音识别 =====
+  stt(filePath) {
+    const fs = wx.getFileSystemManager()
+    const data = fs.readFileSync(filePath)
+    this.baiduToken().then(token =&gt; {
+      wx.request({
+        url: 'https://vop.baidu.com/server_api', method: 'POST',
+        data: { format: 'wav', rate: 16000, channel: 1, token, cuid: 'wx_miniprogram', speech: wx.arrayBufferToBase64(data), len: data.byteLength },
+        success: (res) =&gt; {
+          wx.hideLoading()
+          if (res.data.err_no === 0 &amp;&amp; res.data.result?.length &gt; 0) {
+            this.setData({ typing: true })
+            this.addMsg('user', res.data.result[0])
+            this.chat(res.data.result[0])
+          } else { wx.showToast({ title: '没听清，再说一遍', icon: 'none' }) }
+        }
+      })
+    })
+  },
+
+  // ===== DeepSeek AI 对话 =====
+  chat(text) {
+    wx.request({
+      url: 'https://api.deepseek.com/v1/chat/completions', method: 'POST',
+      header: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${DEEPSEEK_KEY}` },
+      data: { model: 'deepseek-chat', messages: [{ role: 'user', content: '你是"小安"，温暖贴心的AI陪聊伙伴。\n老人说：' + text }], temperature: 0.85, max_tokens: 600 },
+      timeout: 20000,
+      success: (res) =&gt; {
+        this.setData({ typing: false })
+        if (res.statusCode === 200 &amp;&amp; res.data?.choices) {
+          const reply = res.data.choices[0].message.content.trim()
+          this.addMsg('bot', reply)
+          this.tts(reply)
+        }
+      }
+    })
+  },
+
+  // ===== 百度TTS语音朗读 =====
+  tts(text) {
+    this.baiduToken().then(token =&gt; {
+      const audio = wx.createInnerAudioContext()
+      audio.src = `https://tsn.baidu.com/text2audio?tok=${token}&amp;cuid=wx&amp;ctp=1&amp;lan=zh&amp;spd=5&amp;pit=5&amp;vol=9&amp;per=0&amp;aue=3&amp;tex=${encodeURIComponent(text.substring(0,200))}`
+      audio.play()
+    }).catch(() =&gt; {})
+  },
+
+  addMsg(role, text) { this.setData({ messages: [...this.data.messages, { role, text, time: this.now() }] }) },
+
+  baiduToken() {
+    return new Promise((resolve, reject) =&gt; {
+      if (baiduToken &amp;&amp; Date.now() - baiduTokenTime &lt; 3600000) return resolve(baiduToken)
+      wx.request({
+        url: `https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&amp;client_id=${BAIDU_KEY}&amp;client_secret=${BAIDU_SECRET}`,
+        success: (r) =&gt; { if (r.data.access_token) { baiduToken = r.data.access_token; baiduTokenTime = Date.now(); resolve(baiduToken) } else reject() }
+      })
+    })
+  }
+})</pre>
+
+<!-- ═══ 3.3 ═══ -->
+<h3>3.3 家庭配对系统（pages/login/login.js）</h3>
+<p>家人端首次登录生成永久配对码存云端。老人端输入配对码后关联，云端自动恢复，换手机清缓存不丢。</p>
+<pre>// 家人端：查询云端获得永久配对码
+selectFamily() {
+  wx.cloud.database().collection('users').where({ role: 'family' }).limit(1).get()
+    .then(res =&gt; {
+      const familyGroupId = res.data[0]?.familyGroupId ||
+        'FAM' + Date.now().toString(36).toUpperCase().slice(-6)
+      this.doFamilyLogin(familyGroupId)
+    })
+}
+
+// 老人端：先查云端是否已配对，有则直接进
+selectElderly() {
+  wx.cloud.database().collection('users').where({ role: 'elderly' }).limit(1).get()
+    .then(res =&gt; {
+      if (res.data[0]?.familyGroupId &amp;&amp; !res.data[0].familyGroupId.startsWith('SKIP_')) {
+        wx.setStorageSync('userInfo', { role: 'elderly', familyGroupId: res.data[0].familyGroupId })
+        wx.redirectTo({ url: '/pages/elderly/home/home' })
+      } else {
+        wx.navigateTo({ url: '/pages/elderly/code/code' })
+      }
+    })
+}
+
+// 老人端：更换配对码（首页"←切换"→选择"更换配对码"）
+goBack() {
+  wx.showActionSheet({
+    itemList: ['更换配对码', '切换角色'],
+    success: (r) =&gt; {
+      if (r.tapIndex === 0) {
+        const ui = wx.getStorageSync('userInfo') || {}
+        ui.familyGroupId = ''; wx.setStorageSync('userInfo', ui)
+        wx.redirectTo({ url: '/pages/elderly/code/code' })
+      }
+    }
+  })
+}</pre>
+
+<!-- ═══ 3.4 ═══ -->
+<h3>3.4 设备在线检测</h3>
+<p>小程序每8-10秒轮询devices集合，对比lastSeen时间戳。超过5分钟无数据自动判定离线。</p>
+<pre>// 老人端及家人端公共逻辑
+checkDevice() {
+  wx.cloud.database().collection('devices').where({ deviceId: '001' }).limit(1).get()
+    .then(res =&gt; {
+      if (res.data.length &gt; 0) {
+        const d = res.data[0]
+        const minutesAgo = d.lastSeen ? (Date.now() - new Date(d.lastSeen).getTime()) / 60000 : 999
+        const online = d.status === 'online' &amp;&amp; minutesAgo &lt; 5  // 5分钟超时离线
+        this.setData({ deviceOnline: online })
+      }
+    })
+}</pre>
+
+<!-- ═══ 3.5 ═══ -->
+<h3>3.5 用药提醒双端联动</h3>
+<p>家人端设提醒→云数据库→老人端每10秒轮询→到点卡片脉冲+震动+已服标记。药品名输入支持历史联想。</p>
+<pre>// 家人端：保存提醒 + 历史联想（去重，最多20条）
+saveReminder() {
+  wx.cloud.database().collection('reminders').add({
+    data: { medName, dosage, time, active: true, createTime: new Date() }
+  }).then(() =&gt; {
+    const history = wx.getStorageSync('medHistory') || []
+    const updated = history.filter(h =&gt; h.name !== medName)
+    updated.unshift({ name: medName, dosage })
+    wx.setStorageSync('medHistory', updated.slice(0, 20))
+  })
+}
+
+onMedName(e) {
+  const val = e.detail.value
+  if (val.trim()) {
+    const matches = this.data.medHistory.filter(item =&gt; item.name.includes(val)).slice(0, 5)
+    this.setData({ medSuggestions: matches, showSuggestions: matches.length &gt; 0 })
+  }
+}
+
+// 老人端：每10秒轮询 + 到点提醒 + 已服标记
+loadReminders() {
+  const today = new Date().toISOString().slice(0, 10)
+  wx.cloud.database().collection('reminders').where({ active: true }).orderBy('time', 'asc').get()
+    .then(res =&gt; {
+      const up = res.data.find(r =&gt; !(r.takenDates||[]).includes(today) &amp;&amp; r.time &gt;= currentTime) || null
+      if (up &amp;&amp; currentTime &gt;= up.time &amp;&amp; !(up.takenDates||[]).includes(today)) {
+        if (Date.now() - this._lastRemind &gt; 60000) {
+          this._lastRemind = Date.now()
+          this.setData({ reminderActive: true }); wx.vibrateShort()
+          wx.showToast({ title: `该吃${up.medName}了`, duration: 5000 })
+        }
+      }
+    })
+}
+
+markTaken() {
+  const today = new Date().toISOString().slice(0, 10)
+  wx.cloud.database().collection('reminders').doc(upcomingReminder._id).update({
+    data: { takenDates: [...(upcomingReminder.takenDates||[]), today] }
+  })
+}</pre>
+
+<!-- ═══ 3.6 ═══ -->
+<h3>3.6 告警系统</h3>
+<p>支持语音求救(voice_sos)、SOS按钮、跌倒检测三种告警类型。筛选、标记处理、一键清空已处理。本地即时更新UI无需等云端返回。</p>
+<pre>// 告警处理 — 本地先更新UI
+handleAlert(e) {
+  const id = e.currentTarget.dataset.id
+  const alerts = this.data.alerts.map(a =&gt; a._id === id ? { ...a, handled: true } : a)
+  this.setData({ alerts })  // 即时响应
+  wx.cloud.database().collection('alerts').doc(id).update({ data: { handled: true } })
+}
+
+// 一键清空已处理
+clearHandled() {
+  const handled = this.data.alerts.filter(a =&gt; a.handled)
+  const db = wx.cloud.database()
+  const del = (i) =&gt; {
+    if (i &gt;= handled.length) { this.loadAlerts(); return }
+    db.collection('alerts').doc(handled[i]._id).remove().then(() =&gt; del(i+1)).catch(() =&gt; del(i+1))
+  }
+  del(0)
+}</pre>
+
+<!-- ═══ 3.7 ═══ -->
+<h3>3.7 AI日报（family/dashboard/dashboard.js）</h3>
+<p>统计当天语音消息数和告警数，调用DeepSeek生成口语化一句话摘要。</p>
+<pre>loadDailyReport() {
+  const today = new Date(); today.setHours(0,0,0,0)
+  const db = wx.cloud.database()
+  db.collection('messages').where({ createTime: db.command.gte(today) }).count()
+    .then(r1 =&gt; {
+      db.collection('alerts').where({ timestamp: db.command.gte(today) }).count()
+        .then(r2 =&gt; {
+          const prompt = `根据今天数据生成2句日报：语音消息${r1.total}条，告警${r2.total}次。口语化，30字内。`
+          wx.request({
+            url: 'https://api.deepseek.com/v1/chat/completions', method: 'POST',
+            header: { 'Authorization': 'Bearer sk-xxx' },
+            data: { model: 'deepseek-chat', messages: [{ role: 'user', content: prompt }], temperature: 0.5, max_tokens: 100 },
+            success: (r) =&gt; this.setData({ dailyReport: r.data.choices[0].message.content }),
+            fail: () =&gt; this.setData({ dailyReport: `今日语音${r1.total}条，告警${r2.total}次。` })
+          })
+        })
+    })
+}</pre>
+
+<!-- ═══ 3.8 ═══ -->
+<h3>3.8 AI健康问答（pages/family/ai-qa/ai-qa.js）</h3>
+<p>6个预设老年健康问题，DeepSeek专业解答。温度0.3确保准确性，含医疗免责声明。</p>
+<pre>sendMessage() {
+  const text = this.data.inputText.trim()
+  if (!text || this.data.typing) return
+  this.setData({ messages: [...this.data.messages, { role: 'user', text, time: this.now() }], inputText: '', typing: true })
+  wx.request({
+    url: 'https://api.deepseek.com/v1/chat/completions', method: 'POST',
+    header: { 'Authorization': 'Bearer sk-xxx' },
+    data: { model: 'deepseek-chat', messages: [
+      { role: 'user', content: '你是健康问答助手。先声明仅供参考，不构成医疗诊断。\n问题：' + text }
+    ], temperature: 0.3, max_tokens: 600 },
+    success: (res) =&gt; {
+      this.setData({ typing: false, messages: [...this.data.messages, { role: 'bot', text: res.data.choices[0].message.content.trim(), time: this.now() }] })
+    }
+  })
+}</pre>
+
+<!-- ═══ 3.9 ═══ -->
+<h3>3.9 天气联动提醒（elderly/home/home.js）</h3>
+<p>接入wttr.in免费天气API，根据雨雪风雾自动切换安全提示。</p>
+<pre>loadWeather() {
+  wx.request({
+    url: 'https://wttr.in?format=%C', timeout: 5000,
+    success: (res) =&gt; {
+      const w = (res.data||'').toLowerCase()
+      let tip = ''
+      if (w.includes('rain') || w.includes('drizzle')) tip = '🌧 今日有雨，地面湿滑，注意防滑'
+      else if (w.includes('snow')) tip = '❄️ 今日有雪，谨慎外出'
+      else if (w.includes('wind')) tip = '💨 今日风大，注意安全'
+      else if (w.includes('sunny')||w.includes('clear')) tip = '☀️ 今日晴天，适合晒太阳'
+      else tip = '🌤 注意天气变化'
+      this.setData({ weatherTip: tip })
+    }
+  })
+}</pre>
+
+<!-- ═══ 3.10 ═══ -->
+<h3>3.10 角色双模式UI</h3>
+<pre>// login.js — 两套路由策略
+navigateByRole(role) {
+  if (role === 'elderly')
+    wx.redirectTo({ url: '/pages/elderly/home/home' })  // 无Tab，无返回按钮
+  else
+    wx.switchTab({ url: '/pages/family/dashboard/dashboard' })  // 4 Tab导航
+}
+
+/* 老人端：暖金色调 + 超大字号 */
+.elderly-page { background: linear-gradient(180deg, #FFFAF5, #FFFBF8); }
+.ds-text { font-size: 48rpx; font-weight: 800; }
+.sos-btn { width: 320rpx; height: 320rpx; border-radius: 50%; background: linear-gradient(150deg, #FF5252, #B71C1C); }
+
+/* 家人端：深蓝科技 + 标准字号 */
+.dashboard-page { background: #F0F2F8; }
+.header-section { background: linear-gradient(155deg, #0A1628, #1A4F8A); }
+.vital-value { font-size: 32rpx; font-weight: 700; }</pre>
+
+<h2>四、技术架构</h2>
+<table>
+  <tr><th>层</th><th>技术</th><th>说明</th></tr>
+  <tr><td>前端</td><td>WXML + WXSS + JavaScript ES6</td><td>原生开发，包体积~300KB，无第三方UI库</td></tr>
+  <tr><td>后端/云</td><td>微信云开发 cloud2</td><td>云函数Node.js + 8个云数据库集合 + 云存储</td></tr>
+  <tr><td>AI大模型</td><td>DeepSeek Chat API</td><td>陪聊(t=0.85) / 问答(t=0.3) / 日报(t=0.5)</td></tr>
+  <tr><td>语音识别</td><td>百度语音API</td><td>16kHz WAV，默认模型</td></tr>
+  <tr><td>语音合成</td><td>百度语音API</td><td>per=0标准女声</td></tr>
+  <tr><td>离线语音</td><td>ASR Pro 2.0</td><td>天问Block图形化编程，串口输出</td></tr>
+  <tr><td>天气</td><td>wttr.in 免费API</td><td>无Key，返回天气描述</td></tr>
+</table>
+
+<h2>五、创新亮点</h2>
+<table>
+  <tr><th>序号</th><th>创新点</th><th>说明</th></tr>
+  <tr><td>1</td><td>离线语音+SOS</td><td>ASR Pro离线识别喊"救命"自动告警+语音安抚，断网也能本地回复</td></tr>
+  <tr><td>2</td><td>3个AI场景+降级</td><td>陪聊/问答/日报各独立参数调优；API不可用规则引擎降级保底</td></tr>
+  <tr><td>3</td><td>语音双向留言</td><td>老人喊话→自动转文字留言；家人打字→老人首页大字卡片</td></tr>
+  <tr><td>4</td><td>角色双模式UX</td><td>同一个小程序两套独立UI体系，从交互模型到配色完全不同</td></tr>
+  <tr><td>5</td><td>配对码云端持久化</td><td>换手机清缓存不丢配对，云数据库自动恢复；支持更换配对码</td></tr>
+  <tr><td>6</td><td>端到端完整闭环</td><td>ASR→ESP32→云函数→微信小程序，全链路跑通真实数据</td></tr>
+</table>
+
+<h2>六、应用场景</h2>
+<p><strong>场景一：语音求救</strong> — 李奶奶在卫生间滑倒，无法移动。喊了一声"救命"，家里设备立刻回应"已通知家人"。女儿手机小程序弹出红色告警"🔊语音求救"。</p>
+<p><strong>场景二：日常报平安</strong> — 张爷爷每天早上对着设备说"我很好"。设备回复"已告诉家人"。儿子上班路上打开小程序，留言板橙色消息"我很好"——父亲状态不错。</p>
+<p><strong>场景三：AI陪伴</strong> — 王奶奶独居觉得闷，打开小程序按住说话："小安，今天有点闷"。小安语音回复："老人家别闷啦，我给您讲个笑话吧……"</p>
+<p><strong>场景四：远程关怀</strong> — 赵女士在外地工作，在留言板写道"妈今天降温多穿点"并设了降压药提醒。母亲手机首页大字卡片显示留言，到点弹出用药提醒。</p>
+
+<h2>七、总结</h2>
+<p>"爱即守护"不是一套冰冷的监测系统。它是用AI和语音技术搭建的一座桥——老人不用学习复杂的操作，家人不用担忧错过重要的信息。老人端温暖简单，像一盏灯；家人端专业清晰，像一块仪表盘。我们相信科技的最终价值不是更复杂的算法，而是更简单的生活。</p>
+
+<div class="disclaimer">
+  <p><strong>声明</strong>：本文档仅供比赛评审使用。作品中已按要求隐去学校名称、指导教师及参赛学生信息。</p>
+  <p>作品名称：爱即守护 | 赛道：微信小程序开发 | 方向：智慧医疗与大健康 | 2026年5月</p>
+</div>
+
+</body>
+</html>

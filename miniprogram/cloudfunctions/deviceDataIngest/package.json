@@ -1,0 +1,9 @@
+{
+  "name": "deviceDataIngest",
+  "version": "1.0.0",
+  "description": "接收ESP32设备上传的健康数据",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

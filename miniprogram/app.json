@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/elderly/code/code",
+    "pages/elderly/home/home",
+    "pages/elderly/chat/chat",
+    "pages/elderly/games/games",
+    "pages/family/dashboard/dashboard",
+    "pages/family/monitor/monitor",
+    "pages/family/alerts/alerts",
+    "pages/family/report/report",
+    "pages/family/ai-qa/ai-qa",
+    "pages/family/messages/messages",
+    "pages/family/reminders/reminders",
+    "pages/settings/settings"
+  ],
+  "window": {
+    "navigationBarTitleText": "安心守护",
+    "navigationBarBackgroundColor": "#2B6CB0",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F0EB"
+  },
+  "tabBar": {
+    "color": "#7F8C8D",
+    "selectedColor": "#2B6CB0",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/family/dashboard/dashboard",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/family/monitor/monitor",
+        "text": "监护"
+      },
+      {
+        "pagePath": "pages/family/alerts/alerts",
+        "text": "告警"
+      },
+      {
+        "pagePath": "pages/family/report/report",
+        "text": "服务"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于查看老人的实时位置"
+    },
+    "scope.record": {
+      "desc": "用于AI陪聊语音输入"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

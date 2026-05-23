@@ -1,0 +1,35 @@
+<view class="chat-page">
+  <!-- 快捷话题 -->
+  <view class="quick-bar">
+    <text class="quick-chip" wx:for="{{['今天天气真好','我有点闷','讲个笑话吧','养生小知识','谢谢小安']}}" wx:key="*this" data-text="{{item}}" bindtap="quickChat">{{item}}</text>
+  </view>
+
+  <!-- 消息列表 -->
+  <scroll-view class="chat-list" scroll-y scroll-into-view="msg-{{messages.length-1}}" scroll-with-animation>
+    <view wx:for="{{messages}}" wx:key="index" id="msg-{{index}}" class="chat-item {{item.role === 'user' ? 'chat-self' : 'chat-bot'}}">
+      <view class="chat-avatar">{{item.role === 'user' ? '👴' : '🤖'}}</view>
+      <view class="chat-bubble">{{item.text}}</view>
+    </view>
+    <view wx:if="{{typing}}" class="chat-item chat-bot">
+      <view class="chat-avatar">🤖</view>
+      <view class="chat-bubble">
+        <view class="chat-typing"><view class="typing-dot"></view><view class="typing-dot"></view><view class="typing-dot"></view></view>
+      </view>
+    </view>
+    <view class="chat-end">小安陪聊 · AI陪伴</view>
+  </scroll-view>
+
+  <!-- 录音中提示 -->
+  <view class="listening-bar" wx:if="{{listening}}">
+    <view class="listening-dot"></view>
+    <text class="listening-text">正在听您说话...</text>
+    <view class="listening-wave"><view></view><view></view><view></view><view></view><view></view></view>
+  </view>
+
+  <!-- 输入栏 -->
+  <view class="input-bar">
+    <view class="voice-btn {{listening ? 'recording' : ''}}" bindtap="{{listening ? 'stopVoice' : 'startVoice'}}">{{listening ? '⏹' : '🎤'}}</view>
+    <input class="input-field" value="{{inputText}}" bindinput="onInput" bindconfirm="onSend" placeholder="和我说点什么吧..." confirm-type="send" adjust-position="{{true}}" />
+    <view class="send-btn" bindtap="onSend">➤</view>
+  </view>
+</view>

@@ -1,0 +1,59 @@
+<view class="rem-page">
+  <!-- 提示卡片 -->
+  <view class="tip-card">
+    <text class="tip-icon">💡</text>
+    <text class="tip-text">设置用药提醒后，到时间会通过微信消息和语音播报提醒老人按时服药。</text>
+  </view>
+
+  <!-- 提醒列表 -->
+  <block wx:for="{{reminders}}" wx:key="_id">
+    <view class="r-item fade-in-up stagger-item">
+      <switch class="r-switch" checked="{{item.active}}" bindchange="toggleReminder" data-id="{{item._id}}" data-active="{{item.active}}" color="#2B6CB0" />
+      <view class="r-info">
+        <text class="r-name">{{item.medName}}</text>
+        <text class="r-detail">{{item.dosage || '按需'}} · {{item.repeat === 'daily' ? '每天' : '一次'}}</text>
+      </view>
+      <text class="r-time">{{item.time}}</text>
+      <text class="r-del" bindtap="deleteReminder" data-id="{{item._id}}">删除</text>
+    </view>
+  </block>
+
+  <view class="empty-state" wx:if="{{reminders.length === 0}}">
+    <view class="empty-icon">💊</view>
+    <text class="empty-title">暂无用药提醒</text>
+    <text class="empty-desc">添加用药提醒，让老人不再漏服药物</text>
+  </view>
+
+  <!-- 添加按钮 -->
+  <view class="add-btn" bindtap="showAdd">+ 添加用药提醒</view>
+
+  <!-- 添加表单 -->
+  <view class="form-overlay" wx:if="{{showForm}}" bindtap="hideForm">
+    <view class="form-panel" catchtap="noop">
+      <text class="fp-title">添加用药提醒</text>
+      <view class="fp-row">
+        <text class="fp-label">药品名</text>
+        <input class="fp-input" value="{{medName}}" bindinput="onMedName" placeholder="例如：降压药" />
+      </view>
+      <!-- 联想下拉 -->
+      <view class="med-suggestions" wx:if="{{showSuggestions}}">
+        <view class="med-sug-item" wx:for="{{medSuggestions}}" wx:key="name" data-name="{{item.name}}" data-dosage="{{item.dosage}}" bindtap="selectMedSuggestion">
+          <text class="sug-name">{{item.name}}</text>
+          <text class="sug-dosage" wx:if="{{item.dosage}}">{{item.dosage}}</text>
+        </view>
+      </view>
+      <view class="fp-row">
+        <text class="fp-label">用量</text>
+        <input class="fp-input" value="{{dosage}}" bindinput="onDosage" placeholder="例如：1片" />
+      </view>
+      <view class="fp-row">
+        <text class="fp-label">时间</text>
+        <input class="fp-input" type="time" value="{{time}}" bindinput="onTime" />
+      </view>
+      <view class="fp-actions">
+        <view class="fp-cancel" bindtap="hideForm">取消</view>
+        <view class="fp-save" bindtap="saveReminder">保存提醒</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "name": "sendAlertPush",
+  "version": "1.0.0",
+  "description": "告警时自动推送微信消息给家人",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

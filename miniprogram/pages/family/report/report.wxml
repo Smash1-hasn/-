@@ -1,0 +1,37 @@
+<view class="report-page">
+  <!-- 用户卡片 -->
+  <view class="user-card">
+    <view class="user-avatar">👤</view>
+    <view class="user-info">
+      <text class="user-name">{{nickname || '家人'}}</text>
+      <text class="user-sub">家人监护账号</text>
+    </view>
+    <navigator class="user-gear" url="/pages/settings/settings">⚙️</navigator>
+  </view>
+
+  <!-- 服务网格 -->
+  <view class="service-grid fade-in-up">
+    <navigator class="service-item" url="/pages/family/ai-qa/ai-qa">
+      <text class="svc-icon">🤖</text>
+      <text class="svc-name">AI问答</text>
+    </navigator>
+    <navigator class="service-item" url="/pages/family/messages/messages">
+      <text class="svc-icon">💬</text>
+      <text class="svc-name">留言板</text>
+    </navigator>
+    <navigator class="service-item" url="/pages/family/reminders/reminders">
+      <text class="svc-icon">💊</text>
+      <text class="svc-name">用药提醒</text>
+    </navigator>
+    <navigator class="service-item" url="/pages/settings/settings">
+      <text class="svc-icon">⚙️</text>
+      <text class="svc-name">设置</text>
+    </navigator>
+  </view>
+
+  <!-- 活动摘要 -->
+  <view class="summary-card fade-in-up">
+    <text class="summary-title">📊 活动概要</text>
+    <text class="summary-desc">老人活动状态、跌倒告警等信息在「首页」和「监护」Tab 中查看</text>
+  </view>
+</view>

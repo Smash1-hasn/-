@@ -1,0 +1,77 @@
+<view class="elderly-page">
+  <!-- 顶部 -->
+  <view class="top-bar">
+    <text class="back-btn" bindtap="goBack">← 切换</text>
+    <text class="clock-text">{{lastUpdate || '--:--'}}</text>
+    <text class="top-icon">🔋</text>
+  </view>
+
+  <!-- 设备状态 -->
+  <view class="device-status-card">
+    <text class="ds-icon">{{deviceOnline ? '🎤' : '🔌'}}</text>
+    <text class="ds-text">{{deviceOnline ? '语音守护中' : '设备未连接'}}</text>
+    <text class="ds-sub" wx:if="{{lastUpdate}}">最后更新: {{lastUpdate}}</text>
+    <text class="ds-voice" wx:if="{{lastVoice}}">{{lastVoice}}</text>
+  </view>
+
+  <!-- 天气提醒 -->
+  <view class="weather-bar" wx:if="{{weatherTip}}">
+    <text>{{weatherTip}}</text>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="func-row">
+    <view class="func-card" bindtap="goChat">
+      <text class="func-icon">🤖</text>
+      <text class="func-name">小安陪聊</text>
+      <text class="func-desc">语音聊天</text>
+    </view>
+    <view class="func-card" bindtap="goGames">
+      <text class="func-icon">🧩</text>
+      <text class="func-name">健脑游戏</text>
+      <text class="func-desc">锻炼脑力</text>
+    </view>
+    <view class="func-card" bindtap="goTips">
+      <text class="func-icon">💡</text>
+      <text class="func-name">健康贴士</text>
+      <text class="func-desc">每日养生</text>
+    </view>
+  </view>
+
+  <!-- 留言卡片 -->
+  <view class="msg-remind-card" wx:if="{{latestMessage}}">
+    <text class="msg-remind-icon">💬</text>
+    <view class="msg-remind-info">
+      <text class="msg-remind-from">{{latestMessage.fromUser || '家人'}} 留言</text>
+      <text class="msg-remind-content">"{{latestMessage.content}}"</text>
+      <text class="msg-remind-time">{{latestMessage.timeStr}}</text>
+    </view>
+  </view>
+
+  <!-- 用药提醒 -->
+  <view class="reminder-card {{reminderActive ? 'reminder-active' : ''}}" wx:if="{{upcomingReminder}}">
+    <text class="reminder-icon">💊</text>
+    <view class="reminder-info">
+      <text class="reminder-title">用药提醒</text>
+      <text class="reminder-detail">{{upcomingReminder.medName}} · {{upcomingReminder.dosage || '按需'}} · {{upcomingReminder.time}}</text>
+    </view>
+    <view class="reminder-taken-btn" bindtap="markTaken">已服</view>
+  </view>
+
+  <!-- SOS -->
+  <view class="sos-zone">
+    <view class="sos-wrapper">
+      <view class="sos-ring"></view>
+      <button class="sos-btn" bindtouchstart="onSOSPress">
+        <text class="sos-title">S O S</text>
+        <text class="sos-hint">一键求救</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="voice-bar" bindtap="onRefresh">
+    <text class="voice-icon">🔄</text>
+    <text class="voice-text">点击刷新设备状态</text>
+  </view>
+</view>

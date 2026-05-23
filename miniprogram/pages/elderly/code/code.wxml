@@ -1,0 +1,15 @@
+<view class="code-page">
+  <view class="code-card">
+    <text class="code-icon">🏠</text>
+    <text class="code-title">关联家庭</text>
+    <text class="code-desc">请输入家人提供的6位配对码，将您的账户与家人关联</text>
+    <view class="code-hint">📋 家人可在「设置 → 家庭配对」中查看</view>
+
+    <input class="code-input {{error ? 'input-error' : ''}}" value="{{code}}" bindinput="onCodeInput" placeholder="输入配对码" maxlength="10" focus auto-focus adjust-position="{{true}}" />
+
+    <text class="code-error" wx:if="{{error}}">{{error}}</text>
+
+    <view class="code-btn" bindtap="confirmCode">确认关联</view>
+    <text class="code-skip" bindtap="skipForNow">暂不关联，直接进入</text>
+  </view>
+</view>

@@ -1,0 +1,94 @@
+<view class="settings-page">
+  <!-- 用户区 -->
+  <view class="profile-section">
+    <text class="profile-avatar">👤</text>
+    <text class="profile-name">{{userInfo.nickName || '未设置'}}</text>
+    <text class="profile-role">{{userInfo.role === 'elderly' ? '老人模式' : '家人监护模式'}}</text>
+  </view>
+
+  <!-- 家庭配对 -->
+  <view class="block" wx:if="{{userInfo.role === 'family'}}">
+    <text class="block-title">🏠 家庭配对</text>
+    <view class="block-body">
+      <view class="cell">
+        <text class="cell-label">家庭配对码</text>
+        <text class="cell-value" style="font-weight:700;color:#2B6CB0;font-size:32rpx;">{{familyCode}}</text>
+      </view>
+      <view class="cell-action" bindtap="copyCode">
+        <text>📋 复制配对码发给老人</text>
+      </view>
+    </view>
+    <text class="block-hint" style="margin-top:8rpx;font-size:22rpx;color:#7F8C8D;">老人登录时输入此配对码即可关联到你的家庭组</text>
+  </view>
+
+  <!-- 设备 -->
+  <view class="block">
+    <text class="block-title">📱 设备管理</text>
+    <view class="block-body">
+      <view class="cell">
+        <text class="cell-label">绑定设备</text>
+        <text class="cell-value {{deviceStatus === 'online' ? 'text-success' : 'text-hint'}}">
+          {{deviceId || '未绑定'}} {{deviceId ? (deviceStatus === 'online' ? '●在线' : '○离线') : ''}}
+        </text>
+      </view>
+      <view class="cell-action" bindtap="bindDevice">
+        <text>{{deviceId ? '更换设备绑定' : '点击绑定设备'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 紧急联系人 -->
+  <view class="block">
+    <text class="block-title">🆘 紧急联系人</text>
+    <view class="block-body">
+      <view class="contact-cell" wx:for="{{contacts}}" wx:key="_id">
+        <view class="cc-info">
+          <text class="cc-name">{{item.name}}</text>
+          <text class="cc-phone">{{item.phone}}</text>
+          <text class="cc-rel">{{item.relation}}</text>
+        </view>
+        <text class="cc-del" bindtap="deleteContact" data-id="{{item._id}}">删除</text>
+      </view>
+
+      <view wx:if="{{contacts.length === 0}}" class="empty-hint">
+        <text>未添加紧急联系人</text>
+      </view>
+
+      <!-- 添加表单 -->
+      <view class="add-form" wx:if="{{showAddContact}}">
+        <input class="af-input" placeholder="姓名" value="{{newContactName}}" bindinput="onNameInput"/>
+        <input class="af-input" placeholder="手机号码" type="number" value="{{newContactPhone}}" bindinput="onPhoneInput"/>
+        <input class="af-input" placeholder="关系（如：儿子、女儿）" value="{{newContactRelation}}" bindinput="onRelationInput"/>
+        <view class="af-actions">
+          <button class="af-cancel" bindtap="onCancelAdd">取消</button>
+          <button class="af-save" bindtap="saveContact">保存</button>
+        </view>
+      </view>
+
+      <view class="cell-action" bindtap="showAddForm" wx:if="{{!showAddContact}}">
+        <text>+ 添加紧急联系人</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 其他 -->
+  <view class="block">
+    <text class="block-title">⚙️ 其他</text>
+    <view class="block-body">
+      <view class="cell" bindtap="switchRole">
+        <text class="cell-label">切换角色模式</text>
+        <text class="cell-arrow">→</text>
+      </view>
+      <view class="cell" bindtap="showAbout">
+        <text class="cell-label">关于安心守护</text>
+        <text class="cell-arrow">→</text>
+      </view>
+      <view class="cell cell-danger" bindtap="clearData">
+        <text class="cell-label">清除本地数据</text>
+        <text class="cell-arrow">→</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="version">安心守护 v1.0 · AI 驱动智慧养老</view>
+</view>

@@ -1,0 +1,30 @@
+# Arduino
+Arduino IDE/
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# WeChat
+miniprogram/.idea/
+*.zip
+*.rar
+
+# Temp
+check.py
+md2docx.py
+make_docx.py
+cesi.ino
+i_can.ino
+It_is_over.ino
+
+# Sensitive (optional - uncomment if needed)
+# miniprogram/pages/elderly/chat/chat.js  # has API keys

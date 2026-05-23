@@ -1,0 +1,66 @@
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(165deg, #F0F4FA 0%, #F5F0EB 35%, #FFF5F0 65%, #FFFFFF 100%);
+  display: flex; flex-direction: column; align-items: center;
+  padding: 100rpx 36rpx 60rpx;
+  position: relative; overflow: hidden;
+}
+
+/* 装饰 */
+.deco-circle { position: absolute; border-radius: 50%; pointer-events: none; }
+.deco-1 { width: 420rpx; height: 420rpx; background: radial-gradient(circle, rgba(43,108,176,0.04) 0%, transparent 70%); top: -120rpx; right: -100rpx; }
+.deco-2 { width: 280rpx; height: 280rpx; background: radial-gradient(circle, rgba(232,115,74,0.04) 0%, transparent 70%); bottom: 200rpx; left: -70rpx; }
+.deco-3 { width: 200rpx; height: 200rpx; background: radial-gradient(circle, rgba(43,108,176,0.03) 0%, transparent 70%); bottom: 80rpx; right: -40rpx; }
+.deco-4 { width: 160rpx; height: 160rpx; background: radial-gradient(circle, rgba(232,115,74,0.03) 0%, transparent 70%); top: 350rpx; left: 40rpx; }
+
+/* Logo 双圆 */
+.logo-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 60rpx; }
+.logo-dual { display: flex; align-items: center; margin-bottom: 32rpx; position: relative; }
+.logo-half {
+  width: 120rpx; height: 120rpx; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: 0 8rpx 32rpx rgba(0,0,0,0.05);
+  backdrop-filter: blur(10rpx);
+}
+.logo-half.warm { background: linear-gradient(135deg, #FFF5F0 0%, #FFE0D0 100%); }
+.logo-half.cool { background: linear-gradient(135deg, #EDF2F9 0%, #D6E4F5 100%); }
+.logo-emoji { font-size: 44rpx; }
+.logo-label { font-size: 20rpx; color: #8D6E63; margin-top: 2rpx; }
+.logo-divider {
+  width: 2rpx; height: 56rpx; margin: 0 4rpx;
+  background: linear-gradient(180deg, transparent, #D0D8E0 40%, #D0D8E0 60%, transparent);
+}
+
+.app-name {
+  font-size: 56rpx; font-weight: 900; letter-spacing: 8rpx;
+  background: linear-gradient(135deg, #2B6CB0 30%, #E8734A 70%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 10rpx;
+}
+.app-slogan { font-size: 26rpx; color: #8C8C8C; letter-spacing: 2rpx; }
+
+/* 角色按钮 */
+.role-section { width: 100%; display: flex; flex-direction: column; gap: 24rpx; margin-bottom: 48rpx; }
+
+.role-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 36rpx 28rpx; background: rgba(255,255,255,0.9);
+  border-radius: 24rpx; border: none; text-align: left;
+  box-shadow: 0 4rpx 24rpx rgba(0,0,0,0.04);
+  backdrop-filter: blur(10rpx);
+  transition: all 0.2s ease;
+}
+.role-btn::after { border: none; }
+.role-btn:active { transform: scale(0.98); box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.03); }
+
+.warm-btn { border-left: 6rpx solid #E8734A; }
+.cool-btn { border-left: 6rpx solid #2B6CB0; }
+
+.rb-left { display: flex; align-items: center; gap: 24rpx; }
+.rb-emoji { font-size: 48rpx; width: 72rpx; text-align: center; }
+.rb-text { display: flex; flex-direction: column; gap: 6rpx; }
+.rb-name { font-size: 34rpx; font-weight: 700; color: #1A1A2E; }
+.rb-sub { font-size: 24rpx; color: #8C8C8C; }
+.rb-arrow { font-size: 32rpx; color: #C0C4CC; font-weight: 300; }
+
+.footer-text { font-size: 22rpx; color: #B0B8BF; letter-spacing: 4rpx; }

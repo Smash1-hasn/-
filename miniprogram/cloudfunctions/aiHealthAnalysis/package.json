@@ -1,0 +1,9 @@
+{
+  "name": "aiHealthAnalysis",
+  "version": "1.0.0",
+  "description": "调用DeepSeek API进行AI健康分析",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

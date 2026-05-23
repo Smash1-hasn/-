@@ -1,0 +1,94 @@
+.settings-page {
+  min-height: 100vh;
+  background: var(--bg);
+  padding-bottom: 60rpx;
+}
+
+/* 头像区 */
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 40rpx 40rpx;
+  background: linear-gradient(150deg, #2B6CB0 0%, #1A4F8A 100%);
+  border-radius: 0 0 36rpx 36rpx;
+}
+.profile-avatar { font-size: 72rpx; margin-bottom: 16rpx; }
+.profile-name { font-size: 36rpx; font-weight: 700; color: #fff; margin-bottom: 6rpx; }
+.profile-role {
+  font-size: 24rpx; color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.12);
+  padding: 4rpx 20rpx;
+  border-radius: 20rpx;
+}
+
+/* 区块 */
+.block { margin: 28rpx 20rpx 0; }
+.block-title { font-size: 28rpx; font-weight: 700; margin-bottom: 14rpx; display: block; }
+.block-body {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+/* 单元格 */
+.cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26rpx 32rpx;
+  border-bottom: 1rpx solid var(--border);
+}
+.cell:last-child { border-bottom: none; }
+.cell-label { font-size: 28rpx; color: var(--text); }
+.cell-value { font-size: 26rpx; }
+.cell-arrow { font-size: 28rpx; color: var(--text-hint); }
+.cell-danger .cell-label { color: var(--danger); }
+
+.cell-action {
+  padding: 22rpx 32rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: var(--primary);
+  background: var(--primary-bg);
+}
+
+/* 联系人 */
+.contact-cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22rpx 32rpx;
+  border-bottom: 1rpx solid var(--border);
+}
+.cc-info { display: flex; align-items: center; gap: 14rpx; flex: 1; }
+.cc-name { font-size: 28rpx; font-weight: 600; }
+.cc-phone{ font-size: 26rpx; color: var(--primary); }
+.cc-rel {
+  font-size: 22rpx; color: var(--text-secondary);
+  background: var(--bg); padding: 2rpx 12rpx; border-radius: 8rpx;
+}
+.cc-del { font-size: 24rpx; color: var(--danger); padding: 8rpx; }
+
+.empty-hint { text-align: center; padding: 36rpx; font-size: 26rpx; color: var(--text-secondary); }
+
+/* 添加表单 */
+.add-form { padding: 20rpx 32rpx 24rpx; }
+.af-input {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 18rpx 20rpx;
+  margin-bottom: 14rpx;
+  font-size: 28rpx;
+}
+.af-actions { display: flex; gap: 14rpx; }
+.af-cancel, .af-save {
+  flex: 1; text-align: center; padding: 16rpx 0;
+  border-radius: var(--radius-sm); font-size: 28rpx; border: none;
+}
+.af-cancel { background: var(--bg); color: var(--text-secondary); }
+.af-save { background: var(--primary); color: #fff; }
+
+/* 版本 */
+.version { text-align: center; margin-top: 40rpx; font-size: 22rpx; color: var(--text-hint); }

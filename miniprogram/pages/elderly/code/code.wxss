@@ -1,0 +1,37 @@
+.code-page {
+  min-height: 100vh; background: linear-gradient(180deg, #FFF5F0, #FFFFFF);
+  display: flex; flex-direction: column; align-items: center;
+  padding: 120rpx 40rpx 60rpx;
+}
+.code-card {
+  width: 100%; max-width: 600rpx;
+  background: #fff; border-radius: 32rpx;
+  padding: 56rpx 40rpx 48rpx;
+  box-shadow: 0 12rpx 48rpx rgba(0,0,0,0.04);
+  display: flex; flex-direction: column; align-items: center;
+}
+.code-icon { font-size: 72rpx; margin-bottom: 24rpx; }
+.code-title { font-size: 40rpx; font-weight: 800; color: #2C3E50; margin-bottom: 16rpx; }
+.code-desc { font-size: 28rpx; color: #7F8C8D; text-align: center; line-height: 1.6; margin-bottom: 24rpx; }
+.code-hint {
+  font-size: 24rpx; color: #2B6CB0; background: #EDF2F9;
+  padding: 12rpx 24rpx; border-radius: 12rpx; margin-bottom: 36rpx;
+}
+.code-input {
+  width: 100%; height: 96rpx;
+  background: #F5F0EB; border-radius: 20rpx;
+  padding: 0 28rpx; font-size: 36rpx; font-weight: 700;
+  text-align: center; letter-spacing: 8rpx;
+  margin-bottom: 12rpx; box-sizing: border-box;
+}
+.input-error { border: 2rpx solid #E53935; background: #FFF5F5; }
+.code-error { font-size: 24rpx; color: #E53935; margin-bottom: 20rpx; }
+.code-btn {
+  width: 100%; height: 96rpx;
+  background: linear-gradient(135deg, #2B6CB0, #1A4F8A);
+  color: #fff; border-radius: 48rpx;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32rpx; font-weight: 700; margin-bottom: 28rpx;
+}
+.code-btn:active { opacity: 0.85; transform: scale(0.97); }
+.code-skip { font-size: 26rpx; color: #B0B8BF; }

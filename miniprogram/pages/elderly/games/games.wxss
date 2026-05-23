@@ -1,0 +1,79 @@
+.games-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #EDF2F9, #FFFFFF);
+  padding: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-bar { display: flex; gap: 24rpx; margin-bottom: 42rpx; }
+.score-item {
+  text-align: center; padding: 18rpx 32rpx;
+  background: #fff; border-radius: 28rpx; box-shadow: var(--shadow-sm);
+}
+.score-label { font-size: 22rpx; color: var(--text-secondary); display: block; }
+.score-value { font-size: 46rpx; font-weight: 800; color: var(--primary); }
+
+.menu-grid { display: flex; gap: 20rpx; width: 100%; margin-bottom: 28rpx; }
+.menu-card {
+  flex: 1; background: #fff; border-radius: var(--radius);
+  padding: 48rpx 20rpx; text-align: center; box-shadow: var(--shadow);
+}
+.menu-card:active { transform: scale(0.96); }
+.menu-icon { font-size: 64rpx; display: block; margin-bottom: 16rpx; }
+.menu-name { font-size: 30rpx; font-weight: 700; display: block; margin-bottom: 6rpx; }
+.menu-desc { font-size: 22rpx; color: var(--text-secondary); }
+.game-desc { font-size: 24rpx; color: var(--text-hint); text-align: center; margin-top: 20rpx; line-height: 1.6; }
+
+/* 游戏通用 */
+.game-area {
+  width: 100%; background: #fff; border-radius: var(--radius);
+  padding: 48rpx 28rpx; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; align-items: center;
+}
+.result-text { font-size: 34rpx; font-weight: 700; margin: 24rpx 0 8rpx; text-align: center; }
+.back-link { font-size: 26rpx; color: var(--primary); margin-top: 24rpx; }
+
+/* 速算 */
+.math-question {
+  font-size: 88rpx; font-weight: 900; color: var(--text);
+  margin: 32rpx 0; letter-spacing: 12rpx;
+}
+.math-grid {
+  display: flex; gap: 16rpx; flex-wrap: wrap; justify-content: center;
+  width: 80%;
+}
+.math-btn {
+  width: 140rpx; height: 100rpx;
+  background: var(--primary-bg); border-radius: var(--radius);
+  font-size: 44rpx; font-weight: 800; color: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  border: 3rpx solid transparent;
+}
+.math-btn:active { border-color: var(--primary); transform: scale(0.93); }
+
+/* 分类 */
+.spot-grid {
+  display: flex; flex-wrap: wrap; gap: 14rpx; justify-content: center;
+  margin: 28rpx 0;
+}
+.spot-btn {
+  padding: 20rpx 28rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  border: 2rpx solid var(--border);
+}
+.spot-btn:active { border-color: var(--primary); background: var(--primary-bg); transform: scale(0.95); }
+
+.next-row { margin-top: 24rpx; display: flex; gap: 16rpx; }
+.next-btn {
+  padding: 16rpx 48rpx;
+  background: var(--primary); color: #fff;
+  border-radius: 40rpx; font-size: 30rpx; font-weight: 600;
+}
+.next-btn:active { opacity: 0.8; }
+
+.math-correct { border-color: var(--success) !important; background: var(--success-bg) !important; color: var(--success) !important; }
+.spot-correct { border-color: var(--success) !important; background: var(--success-bg) !important; }
