@@ -1,5 +1,7 @@
 # Arduino
 Arduino IDE/
+libraries/
+sketch_may02a/
 
 # Node
 node_modules/
