@@ -2,6 +2,13 @@
 Arduino IDE/
 libraries/
 sketch_may02a/
+archive/
+docs/作品介绍与设计_比赛用.docx
+docs/作品功能与代码.docx
+docs/比赛作品文档_爱即守护.pdf
+*.pdf
+*.zip
+*.rar
 
 # Node
 node_modules/
